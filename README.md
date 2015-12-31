@@ -9,10 +9,7 @@ Simple Makefile Template for 8Bit AVR Projects
 * Project configuration within a simple config file
 * Generates the `.hex` image and extended listing `.lss`
 * Includes some basic utility functions located in `Lib/`
-
-## TODO ##
 * Use [AVRDUDE](http://www.nongnu.org/avrdude/) to upload the flash image to your target
-
 
 ## Requirement: AVR Toolchain ##
 
@@ -26,7 +23,7 @@ apt-get install make avr-libc binutils-avr gcc-avr avrdude
 
 ## Usage ##
 
-1. Download the Skeleton-C package `wget https://github.com/AndiDittrich/EnlighterJS/archive/master.zip -O skeleton.zip`
+1. Download the Skeleton-C package `wget https://github.com/AndiDittrich/AVR.Skeleton-C/archive/master.zip -O skeleton.zip`
 2. Unpack it `unzip skeleton.zip`
 3. Customize the project based configuration by editing `config.makefile` to match your MCU-Type and frequency
 4. Compile your project with `make`

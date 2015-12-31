@@ -9,6 +9,7 @@ include ./config.makefile
 CC_BIN          = /usr/bin/avr-gcc
 OBJCOPY_BIN     = /usr/bin/avr-objcopy
 OBJDUMP_BIN     = /usr/bin/avr-objdump
+AVRDUDE_BIN     = /usr/bin/avrdude
 
 # Directories
 BUILD_DIR=build/
@@ -57,6 +58,10 @@ $(TARGET).lss: $(TARGET).elf
 	@echo 'Compiling: $@'
 	@mkdir -p $(BUILD_DIR)$(dir $*.o)
 	$(CC_BIN) $(CC_FLAGS) -c $< -o $(BUILD_DIR)/$@
+
+# Upload Hex file
+install:
+	$(AVRDUDE_BIN) -c $(PRG_TYPE) -p $(T_DEVICE) -U flash:w:$(BUILD_DIR)$(TARGET).hex:i
 
 # cleanup (delete) build dir
 clean:
