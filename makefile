@@ -7,6 +7,7 @@ include ./config.makefile
 
 # Binaries
 CC_BIN          = /usr/bin/avr-gcc
+PP_BIN					= /usr/bin/php preprocessor/pre.php
 OBJCOPY_BIN     = /usr/bin/avr-objcopy
 OBJDUMP_BIN     = /usr/bin/avr-objdump
 AVRDUDE_BIN     = /usr/bin/avrdude
@@ -20,8 +21,8 @@ SOURCES = $(wildcard *.c)
 # Create Object List
 OBJECTS=$(SOURCES:.c=.o)
 
-# Add additional Flags
-CC_FLAGS += -std=$(CC_STANDARD) -g -mmcu=$(T_DEVICE) -O$(CC_OPTIMIZATION) -DF_CPU=$(T_FCPU)UL
+# Add additional Flags - force C language
+CC_FLAGS += -std=$(CC_STANDARD) -g -mmcu=$(T_DEVICE) -O$(CC_OPTIMIZATION) -DF_CPU=$(T_FCPU)UL -xc
 LD_FLAGS += -Wl,-Map=$(BUILD_DIR)application.map,--cref $(foreach d, $(LD_LIBS), -l$d)
 
 # Target name
@@ -53,11 +54,11 @@ $(TARGET).lss: $(TARGET).elf
 	@echo 'Finished building: $@'
 	@echo ' '
 
-# Compile Sourcefiles
+# Preprocess, Compile & Assemble Sourcefiles
 %.o: %.c
 	@echo 'Compiling: $@'
 	@mkdir -p $(BUILD_DIR)$(dir $*.o)
-	$(CC_BIN) $(CC_FLAGS) -c $< -o $(BUILD_DIR)/$@
+	$(PP_BIN) $< | $(CC_BIN) $(CC_FLAGS) -c -o $(BUILD_DIR)/$@ -
 
 # Upload Hex file
 install:
