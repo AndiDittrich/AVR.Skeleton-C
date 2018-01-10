@@ -8,7 +8,7 @@ Simple Makefile Template for 8Bit AVR Projects
 * Simply compile all C-Files of a project
 * Project configuration within a simple config file
 * Generates the `.hex` image and extended listing `.lss`
-* Includes some [basic utility functions](LibraryDocs.md) located in `Lib/`
+* Includes some [basic utility functions](docs/library.md) located in `lib/`
 * Use [AVRDUDE](http://www.nongnu.org/avrdude/) to upload the flash image to your target
 * Advanced PHP based pre-processing (define your custom pre-processor functions)
 
@@ -50,7 +50,14 @@ T_DEVICE = atmega16
 T_FCPU  = 8000000
 ```
 
-# Library Functions #
+## EEPROM Programming ##
+
+```raw
+0x55 0x22 0x10 0x1 0x00 0x01 0x02 0x03
+0x22 0x11 0x00 0xff 0xA0
+```
+
+## Library Functions ##
 
 A bunch of easy to use [utility functions](LibraryDocs.md) is included to speed-up your project.
 For further informations, please take a look into the [Documentation](LibraryDocs.md)

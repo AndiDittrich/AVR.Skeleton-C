@@ -2,7 +2,6 @@
  *  Util.h
  *	Some Helper Functions
 */
-
 #ifndef UTIL_H_
 #define UTIL_H_
 

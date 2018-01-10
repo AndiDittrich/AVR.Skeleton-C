@@ -1,6 +1,6 @@
 The MIT License (X11 License)
 
-Copyright 2013-2016 Andi Dittrich
+Copyright 2013-2018 Andi Dittrich
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
