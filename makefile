@@ -21,9 +21,6 @@ XXD_BIN         = /usr/bin/xxd
 BUILD_DIR=build/
 TMP_DIR=.tmp/
 
-# Get List of ALL Sourcefiles on Source Path
-SOURCES = $(wildcard *.c) $(wildcard Driver/*.c)
-
 # Create Object List
 OBJECTS=$(SOURCES:.c=.o)
 

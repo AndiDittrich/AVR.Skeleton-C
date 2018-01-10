@@ -40,6 +40,9 @@ CC_OPTIMIZATION = 2
 # C Standard Level
 CC_STANDARD = gnu99
 
+# Get List of ALL Sourcefiles on Source Path
+SOURCES = $(wildcard *.c)
+
 # Programmer Settings (AVRDUDE)
 # ---------------------------
 PRG_TYPE = avrispmkII

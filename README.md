@@ -7,6 +7,7 @@ Simple Makefile Template for 8Bit AVR Projects
 
 * Simply compile all C-Files of a project
 * Project configuration within a simple config file
+* EEPROM CLI Programming utility functions
 * Generates the `.hex` image and extended listing `.lss`
 * Includes some [basic utility functions](docs/library.md) located in `lib/`
 * Use [AVRDUDE](http://www.nongnu.org/avrdude/) to upload the flash image to your target
@@ -24,16 +25,19 @@ apt-get install make avr-libc binutils-avr gcc-avr avrdude
 
 ## Usage ##
 
-1. Download the Skeleton-C package `wget https://github.com/AndiDittrich/AVR.Skeleton-C/archive/master.zip -O skeleton.zip`
-2. Unpack it `unzip skeleton.zip`
-3. Customize the project based configuration by editing `config.makefile` to match your MCU-Type and frequency
-4. Compile your project with `make`
-5. Upload the flash image to your device `make install`
+1. Use git 
+2. Add **AVR.Skelekton-C** as submodule: `git submodule add https://github.com/AndiDittrich/AVR.Skeleton-C.git`
+3. Link the makefile to your project root `ln -s AVR.Skeleton-C/makefile makefile`
+4. Copy to makefile.config template `cp AVR.Skeleton-C/config.makefile .`
+5. Customize the project based configuration by editing `config.makefile` to match your MCU-Type and frequency
+6. Compile your project with `make`
+7. Upload the flash image to your device `make install`
 
 All build-files are stored in the `build/` directorie. The output files are prefixed with **_application**.
 For example, the generated hex file is located in `build/_application.hex`
 
 ## Project based Configuration ##
+
 To edit linker, compiler flags, MCU-target, frequency you just need to edit the `config.makefile` file.
 This allows you to easily update the **Skeleton-C** project without merging the makefile manually!
 
@@ -59,8 +63,8 @@ T_FCPU  = 8000000
 
 ## Library Functions ##
 
-A bunch of easy to use [utility functions](LibraryDocs.md) is included to speed-up your project.
-For further informations, please take a look into the [Documentation](LibraryDocs.md)
+A bunch of easy to use [utility functions](docs/library.md) is included to speed-up your project.
+For further informations, please take a look into the [Documentation](docs/library.md)
 
 ## Any Questions ? Report a Bug ? Enhancements ? ##
 
